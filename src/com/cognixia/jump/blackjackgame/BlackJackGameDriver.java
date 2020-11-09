@@ -23,14 +23,12 @@ public class BlackJackGameDriver {
 			Card card1 = new Card(Face.JACK, Suit.SPADES);
 			deck1.shuffleDeck();
 
-			// Player
-
 			me.addCard(deck1.dealNextCard());
 			me.addCard(deck1.dealNextCard());
 			me.getPlayerHand(true);
 
 			System.out.println(" ");
-			// dealer
+
 			dealer.addCard(deck1.dealNextCard());
 			dealer.addCard(deck1.dealNextCard());
 			dealer.getPlayerHand(false);
@@ -57,7 +55,7 @@ public class BlackJackGameDriver {
 					System.out.println("You have chosen to stay. Your hand: " + me.getHandSum());
 				}
 
-			} while (answer.equalsIgnoreCase("hit"));
+			} while (answer.equalsIgnoreCase("Hit"));
 
 			// Dealer
 
@@ -89,11 +87,9 @@ public class BlackJackGameDriver {
 					System.out.println("Dealer has chosen to stay!");
 
 					int totalDealerHand = dealer.getHandSum();
-					System.out.println(totalDealerHand);
 					int totalPlayerHand = me.getHandSum();
 
 					if (totalDealerHand > totalPlayerHand) {
-						System.out.println(totalDealerHand);
 						System.out.println("Both players have decided to stay. The Winner is " + dealer.getNickName()
 								+ " with a total of " + totalDealerHand + ".");
 
