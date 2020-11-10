@@ -29,7 +29,6 @@ public class Player {
 
 	public int getHandSum() {
 		int totalSum = 0;
-//		int countAce = 0;
 		Scanner scanner = new Scanner(System.in);
 
 		for (Card countSum : playerHand) {
@@ -37,22 +36,7 @@ public class Player {
 				totalSum = totalSum + countSum.getFace();
 			}
 		}
-//		if (countAce > 0) {
-//			System.out.println(
-//					"You have a " + totalSum + " and " + countAce + " Aces. Would you like your Aces to be 1 or 11: ");
-//
-//			int input = scanner.nextInt();
 
-//			if (input == 11) {
-//				System.out.println(totalSum + input);
-//			} else {
-//				countAce++;
-//			System.out.println(totalSum);
-
-//			}
-//		}
-
-//		scanner.close();
 		return totalSum;
 
 	}

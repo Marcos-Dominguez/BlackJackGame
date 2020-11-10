@@ -23,11 +23,15 @@ public class BlackJackGameDriver {
 			Card card1 = new Card(Face.JACK, Suit.SPADES);
 			deck1.shuffleDeck();
 
-			me.addCard(deck1.dealNextCard());
-			me.addCard(deck1.dealNextCard());
-			me.getPlayerHand(true);
+			// Player
 
+			me.addCard(deck1.dealNextCard());
+			me.addCard(deck1.dealNextCard());
+
+			me.getPlayerHand(true);
 			System.out.println(" ");
+
+			// Dealer
 
 			dealer.addCard(deck1.dealNextCard());
 			dealer.addCard(deck1.dealNextCard());
@@ -44,12 +48,18 @@ public class BlackJackGameDriver {
 					me.addCard(deck1.dealNextCard());
 					System.out.println(me.getHandSum());
 
+					if (me.getHandSum() == 21) {
+						System.out.println("Black Jack!  With a hand of " + me.getHandSum());
+						System.exit(0);
+					}
+
 					if (me.getHandSum() > 21) {
 						System.out.println(
 								"You busted and got a Total of " + me.getHandSum() + ". Dealer wins this hand!");
 						System.exit(0);
 					}
 				}
+
 				// Stay
 				if (answer.equalsIgnoreCase("stay")) {
 					System.out.println("You have chosen to stay. Your hand: " + me.getHandSum());
@@ -67,9 +77,13 @@ public class BlackJackGameDriver {
 				System.out.println(" - Dealers turn - ");
 
 				// Dealer Draws card;
+
 				if (dealer.getHandSum() <= 16) {
+
 					int totalPlayerHand = me.getHandSum();
+
 					dealer.addCard(deck1.dealNextCard());
+					System.out.println("Dealer opens with: " + totalPlayerHand);
 					System.out.println("Dealer hand is: " + dealer.getHandSum());
 
 					if (dealer.getHandSum() == 21) {
@@ -95,7 +109,7 @@ public class BlackJackGameDriver {
 
 					} else if (totalDealerHand == totalPlayerHand) {
 						System.out.println(totalDealerHand);
-						System.out.println("No winner, try again");
+						System.out.println("Push, Try again");
 						System.exit(0);
 
 					} else {

@@ -22,7 +22,6 @@ public class DeckOfCards {
 
 		deck = new Card[NUMBER_OF_CARDS];// creates an array of 52 cards
 		currentCard = 0;
-
 		// Layout the deck of cards
 
 		for (int count = 0; count < deck.length; count++) {
