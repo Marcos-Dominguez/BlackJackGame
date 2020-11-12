@@ -83,7 +83,7 @@ public class BlackJackGameDriver {
 					int totalPlayerHand = me.getHandSum();
 
 					dealer.addCard(deck1.dealNextCard());
-					System.out.println("Dealer opens with: " + totalPlayerHand);
+
 					System.out.println("Dealer hand is: " + dealer.getHandSum());
 
 					if (dealer.getHandSum() == 21) {
