@@ -49,7 +49,7 @@ public class BlackJackGameDriver {
 					System.out.println(me.getHandSum());
 
 					if (me.getHandSum() == 21) {
-						System.out.println("Black Jack!  With a hand of " + me.getHandSum());
+						System.out.println("Black Jack!  You win With a hand of " + me.getHandSum());
 						System.exit(0);
 					}
 
@@ -79,15 +79,15 @@ public class BlackJackGameDriver {
 				// Dealer Draws card;
 
 				if (dealer.getHandSum() <= 16) {
-
+					
 					int totalPlayerHand = me.getHandSum();
-
+					
 					dealer.addCard(deck1.dealNextCard());
-					System.out.println("Dealer opens with: " + totalPlayerHand);
+
 					System.out.println("Dealer hand is: " + dealer.getHandSum());
 
 					if (dealer.getHandSum() == 21) {
-						System.out.println("Black Jack! Dealer wins. With a hand of " + dealer.getHandSum());
+						System.out.println("Black Jack! Dealer wins with a hand of " + dealer.getHandSum());
 						System.exit(0);
 					}
 
@@ -108,12 +108,15 @@ public class BlackJackGameDriver {
 								+ " with a total of " + totalDealerHand + ".");
 
 					} else if (totalDealerHand == totalPlayerHand) {
-						System.out.println(totalDealerHand);
-						System.out.println("Push, Try again");
+						System.out.println("Your hand of " + totalPlayerHand + " is equal to the Dealer hand of: " + totalDealerHand);
+						System.out.println("So Push, Try again");
 						System.exit(0);
 
 					} else {
-
+						if (dealer.getHandSum() == 21) {
+							System.out.println("Black Jack! Dealer wins with a hand of " + dealer.getHandSum());
+							System.exit(0);
+						}
 						System.out.println("Both players have decided to stay. The Winner is " + me.getNickName()
 								+ " with a total of " + totalPlayerHand + ".");
 					}
